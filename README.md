@@ -165,6 +165,29 @@ If voice input is not available, the app automatically falls back to text input.
 - Generates more sophisticated questions and articles
 - Falls back to mock if API fails
 
+## Deployment
+
+### Backend on Render
+
+1. Create a new **Web Service** on [Render](https://render.com)
+2. Connect your GitHub repo
+3. Configure:
+   - **Root Directory**: `server`
+   - **Build Command**: `npm install && npm run build`
+   - **Start Command**: `npm start`
+4. Add environment variable: `OPENAI_API_KEY` (optional)
+5. Note your Render URL (e.g., `https://your-app.onrender.com`)
+
+### Frontend on Vercel
+
+1. Import your repo on [Vercel](https://vercel.com)
+2. Configure:
+   - **Root Directory**: `client`
+   - **Framework Preset**: Vite
+3. Add environment variable:
+   - `VITE_API_URL` = `https://your-render-url.onrender.com/api`
+4. Deploy
+
 ## Development
 
 ### Server Commands
@@ -172,6 +195,7 @@ If voice input is not available, the app automatically falls back to text input.
 npm run dev    # Start development server with hot reload
 npm run build  # Build for production
 npm start      # Run production build
+npm test       # Run tests
 ```
 
 ### Client Commands
